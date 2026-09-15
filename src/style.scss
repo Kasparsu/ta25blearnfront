@@ -1,6 +1,3 @@
-@use 'sass:color';
-
-$bgcolor: gray;
-body {
-    background: color.scale($bgcolor, $lightness: -30%);
-}
+@use "bulma/sass" with (
+    $primary: coral,
+);
