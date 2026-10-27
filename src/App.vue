@@ -12,10 +12,10 @@ let tabTitles = ref([
 
 let activeTab = ref(0);
 
-let contents = ref([
+let contents = [
     ToDo,
     Modals,
-]);
+];
 </script>
 
 <template>
