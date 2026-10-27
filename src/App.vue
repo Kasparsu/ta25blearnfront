@@ -1,26 +1,17 @@
 <script setup>
 import { ref } from 'vue';
-import Tabs from './components/Tabs.vue';
 
-import ToDo from './pages/ToDo.vue';
-import Modals from './pages/Modals.vue';
-
-let tabTitles = ref([
-    'ToDo',
-    'Modals',
-]);
-
-let activeTab = ref(0);
-
-let contents = [
-    ToDo,
-    Modals,
-];
 </script>
 
 <template>
-    <Tabs :titles="tabTitles" :active="activeTab" @change="activeTab=$event"></Tabs>
-    <div class="container content mt-2">
-        <component :is="contents[activeTab]"></component>
-    </div>
+    <h1>Hello App!</h1>
+    <p><strong>Current route path:</strong> {{ $route.fullPath }}</p>
+    <nav>
+        <RouterLink to="/">Go to ToDo</RouterLink>
+        <RouterLink to="/modals">Go to Modals</RouterLink>
+    </nav>
+   
+    <main>
+        <RouterView />
+    </main>
 </template>
