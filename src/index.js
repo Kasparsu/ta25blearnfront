@@ -6,8 +6,8 @@ import ToDo from './pages/ToDo.vue';
 import Modals from './pages/Modals.vue';
 
 const routes = [
-  { path: '/', component: ToDo },
-  { path: '/modals', component: Modals },
+  { path: '/', component: ToDo, name: 'To Do'},
+  { path: '/modals', component: Modals, name: 'Modals' },
 ];
 
 export const router = createRouter({
