@@ -2,13 +2,17 @@ import { createApp } from 'vue';
 
 import { createMemoryHistory, createWebHashHistory, createWebHistory, createRouter } from 'vue-router';
 
-import ToDo from './pages/ToDo.vue';
-import Modals from './pages/Modals.vue';
+const pages = import.meta.glob('./pages/*.vue');
 
-const routes = [
-  { path: '/', component: ToDo, name: 'To Do'},
-  { path: '/modals', component: Modals, name: 'Modals' },
-];
+const routes = [];
+for(let page in pages) {
+  let name = page.replace('./pages/', '').replace('.vue', '');
+  let path = '/' + name.toLowerCase();
+  if(routes.length === 0) {
+    path = '/';  
+  }
+  routes.push({ path, name, component: pages[page]});
+}
 
 export const router = createRouter({
   history: createWebHistory(),
