@@ -6,5 +6,7 @@ import RouterTabs from './components/RouterTabs.vue';
 
 <template>
     <RouterTabs></RouterTabs>
-    <RouterView />
+    <div class="container content mt-2">
+        <RouterView />
+    </div>
 </template>
