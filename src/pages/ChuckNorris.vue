@@ -2,15 +2,11 @@
 import { ref } from 'vue';
 
 let joke = ref('');
+let url = "https://api.chucknorris.io/jokes/random";
+const res = await fetch(url);
+const json = await res.json();
+joke.value = json.value;
 
-function reqListener() {
-  joke.value = JSON.parse(this.responseText).value;
-}
-
-const req = new XMLHttpRequest();
-req.addEventListener("load", reqListener);
-req.open("GET", "https://api.chucknorris.io/jokes/random");
-req.send();
 </script>
 <template>
     <h1>{{ joke }}</h1>
